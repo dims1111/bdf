@@ -9,6 +9,8 @@
 	Hello world!  
 </h1>
 
-<P>  The time on the server is ${serverTime}. </P>
+	<P>  The time on the server is ${serverTime}. </P>
+	
+	<a href="/sys101100m/list" target="_self">회사등록</a>
 </body>
 </html>

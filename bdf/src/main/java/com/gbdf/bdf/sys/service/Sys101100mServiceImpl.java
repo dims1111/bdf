@@ -19,7 +19,7 @@ public class Sys101100mServiceImpl implements Sys101100mService {
 	// 회사 : 조회
 	// 매퍼 호출
 	@Override
-	public List<Sys101100mVO> selectCompanyList(Sys101100mVO sys101100mVO) throws Exception {		
-		return sqlSession.selectList(NAMESPACE + ".selectCompanyList", sys101100mVO);
+	public List<Sys101100mVO> selectCompanyList() throws Exception {		
+		return sqlSession.selectList(NAMESPACE + ".selectCompanyList");
 	}
 }

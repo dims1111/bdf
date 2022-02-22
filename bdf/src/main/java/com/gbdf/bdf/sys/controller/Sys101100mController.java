@@ -16,11 +16,11 @@ public class Sys101100mController {
 	private Sys101100mService sys101100mService;
 
 	@RequestMapping("/list")
-	public String selectCompanyList(Sys101100mVO sys101100mVO, Model model) throws Exception {
+	public String selectCompanyList(Model model) throws Exception {
 		
 		// 회사 : 조회
 		// 서비스 인터페이스 호출
-		model.addAttribute("selectCompanyList", sys101100mService.selectCompanyList(sys101100mVO));
+		model.addAttribute("selectCompanyList", sys101100mService.selectCompanyList());
 		
 		return "/sys/sys101100m/list";
 	}

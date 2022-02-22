@@ -8,6 +8,6 @@ public interface Sys101100mService {
 	
 	// 회사 : 조회
 	// DTO 호출
-	public List<Sys101100mVO> selectCompanyList(Sys101100mVO sys101100mVO) throws Exception;
+	public List<Sys101100mVO> selectCompanyList() throws Exception;
 
 }
