@@ -2,6 +2,7 @@ package com.gbdf.bdf.sys.model;
 
 import java.util.Date;
 
+// 회사 VO
 public class Sys101100mVO {
 
 	private Integer company_id;
