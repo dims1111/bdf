@@ -1,0 +1,117 @@
+-- drop table
+conn apps/apps@orcl
+drop table bsys.sys_company; 
+
+
+-- create table
+create table bsys.sys_company
+(
+  company_id         number         not null,
+  company_code       varchar2(0030) not null,
+  company_name_kr    varchar2(0200) not null,
+  company_name_en    varchar2(0200) not null,
+  begin_date         date           not null,
+  end_date           date,
+  user_yn            varchar2(0001) default 'Y' not null,
+  address_line1      varchar2(0500),
+  address_line2      varchar2(0200),
+  zip_code           varchar2(0020), 
+  email_address      varchar2(0050),
+  telephone_number   varchar2(0050),
+  description        varchar2(2000),
+  --
+  create_by          varchar2(0030) default 'admin',
+  create_date        date           default sysdate,
+  update_by          varchar2(0030) default 'admin',
+  update_date        date           default sysdate
+)
+tablespace ts_sys_data
+  pctfree 10
+  pctused 40
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64k
+    minextents 1
+    maxextents unlimited
+  );
+
+-- create primary key constraints 
+alter table bsys.sys_company
+  add constraint sys_company_pk primary key (company_id)
+  using index 
+  tablespace ts_sys_idx
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64k
+    minextents 1
+    maxextents unlimited
+  );
+
+
+-- create unique key
+create unique index bsys.sys_company_uk on bsys.sys_company (company_code)
+  tablespace ts_sys_idx
+  storage
+  (
+    initial 64k
+    minextents 1
+    maxextents unlimited
+  );
+  
+-- create indexes 
+create index bsys.sys_company_ix1 on bsys.sys_company (company_name_kr)
+  tablespace ts_sys_idx
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64k
+    minextents 1
+    maxextents unlimited
+  );
+    
+  
+-- add comments to the table 
+comment on table bsys.sys_company                      is '[시스템] 회사정보';
+
+
+-- add comments to the columns 
+comment on column bsys.sys_company.company_id          is '회사ID';
+comment on column bsys.sys_company.company_code        is '회사코드';
+comment on column bsys.sys_company.company_name_kr     is '회사명(한글)';
+comment on column bsys.sys_company.company_name_en     is '회사명(영문)';
+comment on column bsys.sys_company.begin_date          is '시작일자';
+comment on column bsys.sys_company.end_date            is '종료일자';
+comment on column bsys.sys_company.user_yn             is '사용여부';
+comment on column bsys.sys_company.address_line1       is '주소라인1';
+comment on column bsys.sys_company.address_line2       is '주소라인2';
+comment on column bsys.sys_company.zip_code            is '우펴번호';
+comment on column bsys.sys_company.email_address       is '이메일';
+comment on column bsys.sys_company.telephone_number    is '전화번호';
+comment on column bsys.sys_company.description         is '설명';
+--
+comment on column bsys.sys_company.create_by           is '생성자';
+comment on column bsys.sys_company.create_date         is '생성일시';
+comment on column bsys.sys_company.update_by           is '수정자';
+comment on column bsys.sys_company.update_date         is '수정일시';
+
+
+-- 시노님 부여
+drop synonym sys_company;
+create synonym sys_company for bsys.sys_company;
+
+
+-- apps 권한 부여(CRUD)
+conn bsys/bsys@orcl
+grant all on bsys.sys_company to apps;
+
+-- apps 로그인
+apps/apps@orcl
+
+

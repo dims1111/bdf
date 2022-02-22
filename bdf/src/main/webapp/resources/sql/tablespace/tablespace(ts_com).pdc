@@ -1,0 +1,35 @@
+-- 테이블스페이스 조회
+select *
+  from dba_data_files;
+
+-- 테이블스페이스 삭제
+drop tablespace ts_com_data including contents and datafiles;
+
+-- 테이블스페이스의 물리적 파일까지 삭제하기
+drop tablespace ts_com_idx including contents and datafiles;
+
+-- 테이블스페이스 생성
+create tablespace ts_com_data 
+       datafile 'C:\bdf\oracle\ts_com_data.dbf' 
+       size 10m 
+       autoextend on next 4m 
+       maxsize unlimited 
+       logging permanent
+       extent management 
+       local autoallocate 
+       blocksize 8k 
+       segment space 
+       management manual flashback on;
+       
+-- 테이블스페이스 생성
+create tablespace ts_com_idx 
+       datafile 'C:\bdf\oracle\ts_com_idx.dbf' 
+       size 10m 
+       autoextend on next 4m 
+       maxsize unlimited 
+       logging permanent
+       extent management 
+       local autoallocate 
+       blocksize 8k 
+       segment space 
+       management manual flashback on;

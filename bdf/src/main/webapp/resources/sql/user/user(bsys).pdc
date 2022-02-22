@@ -1,0 +1,14 @@
+-- 사용자 삭제
+drop user bsys cascade; 
+
+-- 사용자 생성
+create user bsys 
+identified by bsys 
+default tablespace ts_sys_data 
+profile default quota unlimited on ts_sys_data;
+
+-- 사용자 권한 생성
+grant "CONNECT"  to bsys with admin option;
+grant "DBA"      to bsys with admin option;
+grant "RESOURCE" to bsys with admin option;
+alter user bsys default role "CONNECT", "DBA", "RESOURCE";

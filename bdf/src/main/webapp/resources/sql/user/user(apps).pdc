@@ -1,0 +1,14 @@
+-- 사용자 삭제
+drop user apps cascade; 
+
+-- 사용자 생성
+create user apps 
+identified by apps 
+default tablespace ts_sys_data 
+profile default quota unlimited on ts_sys_data;
+
+-- 사용자 권한 생성
+grant "CONNECT"  to apps with admin option;
+grant "DBA"      to apps with admin option;
+grant "RESOURCE" to apps with admin option;
+alter user apps default role "CONNECT", "DBA", "RESOURCE";

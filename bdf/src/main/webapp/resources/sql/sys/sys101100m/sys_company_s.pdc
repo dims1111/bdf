@@ -1,0 +1,22 @@
+-- apps 로그인
+apps/apps@orcl
+
+-- drop sequence
+drop sequence bsys.sys_company_s;
+
+-- create sequence 
+create sequence bsys.sys_company_s
+minvalue 1
+maxvalue 9999999999999999
+start with 1
+increment by 1
+order;
+
+-- apps 권한 부여(CRUD)
+conn bsys/bsys@orcl
+grant all on bsys.sys_company_s to apps;
+
+-- apps 로그인
+apps/apps@orcl
+
+
