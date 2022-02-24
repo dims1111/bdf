@@ -4,28 +4,72 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace = "com.gbdf.bdf.sys.Sys101100mMapper">
-
-	<!-- 회사 : 조회 -->
+	<!-- 회사등록  -->
+	<!-- 데이터 조회 -->
 	<select id="selectCompanyList"  parameterType="Sys101100mVO" resultType="Sys101100mVO">
-	select sc.company_id                                     as company_id
-          ,sc.company_code                                   as company_code
-          ,sc.company_name_kr                                as company_name_kr
-          ,sc.company_name_en                                as company_name_en
-          ,to_char(sc.begin_date, 'YYYY-MM-DD')              as begin_date
-          ,to_char(sc.end_date, 'YYYY-MM-DD')                as end_date
-          ,sc.user_yn                                        as user_yn
-          ,sc.address_line1                                  as address_line1
-          ,sc.address_line2                                  as address_line2
-          ,sc.zip_code                                       as zip_code
-          ,sc.email_address                                  as email_address
-          ,sc.telephone_number                               as telephone_number
-          ,sc.description                                    as description
-          ,sc.create_by                                      as create_by
-          ,to_char(sc.create_date, 'YYYY-MM-DD HH24:MI:SS')  as create_date
-          ,sc.update_by                                      as update_by
-          ,to_char(sc.update_date, 'YYYY-MM-DD HH24:MI:SS')  as update_date
-      from sys_company sc
-     where 1=1
-     order by sc.company_code
-	</select>
+		/* com.gbdf.bdf.sys.sys101100mmapper.selectCompanyList */
+		select sc.company_id                                     as company_id
+              ,sc.company_code                                   as company_code
+              ,sc.company_name_kr                                as company_name_kr
+              ,sc.company_name_en                                as company_name_en
+              ,to_char(sc.begin_date, 'yyyy-mm-dd')              as begin_date
+              ,to_char(sc.end_date, 'yyyy-mm-dd')                as end_date
+              ,sc.user_yn                                        as user_yn
+              ,sc.address_line1                                  as address_line1
+              ,sc.address_line2                                  as address_line2
+              ,sc.zip_code                                       as zip_code
+              ,sc.email_address                                  as email_address
+              ,sc.telephone_number                               as telephone_number
+              ,sc.description                                    as description
+              ,sc.create_by                                      as create_by
+              ,to_char(sc.create_date, 'yyyy-mm-dd hh24:mi:ss')  as create_date
+              ,sc.update_by                                      as update_by
+              ,to_char(sc.update_date, 'yyyy-mm-dd hh24:mi:ss')  as update_date
+          from sys_company sc
+         where 1=1
+         order by sc.company_code
+    </select>
+    
+    <!-- 회사 : 조회 -->
+    <insert id="insertCompany"  parameterType="Sys101100mVO">
+    	/* com.gbdf.bdf.sys.sys101100mmapper.insertCompany */
+        insert into bsys.sys_company
+            (company_id
+            ,company_code
+            ,company_name_kr
+            ,company_name_en
+            ,begin_date
+            ,end_date
+            ,user_yn
+            ,address_line1
+            ,address_line2
+            ,zip_code
+            ,email_address
+            ,telephone_number
+            ,description
+            ,create_by
+            ,create_date
+            ,update_by
+            ,update_date
+            )
+        values
+            (bsys.sys_company_s.nextval
+            ,#{company_code}
+            ,#{company_name_kr}
+            ,#{company_name_en}
+            ,to_date(#{begin_date}, 'yyyy-mm-dd')
+            ,to_date(#{end_date}, 'yyyy-mm-dd')
+            ,nvl(#{user_yn}, 'N')
+            ,#{address_line1}
+            ,#{address_line2}
+            ,#{zip_code}
+            ,#{email_address}
+            ,#{telephone_number}
+            ,#{description}
+            ,NVL(#{create_by}, 'admin')
+            ,sysdate
+            ,nvl(#{update_by}, 'admin')
+            ,sysdate
+            )
+    </insert>
 </mapper>

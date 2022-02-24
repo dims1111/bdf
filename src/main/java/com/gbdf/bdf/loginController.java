@@ -26,6 +26,7 @@ public class loginController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
+		//model.addAttribute("userVO", new UserVO());
 		
 		
 		logger.info("====================================================================");

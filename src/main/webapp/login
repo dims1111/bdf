@@ -1,6 +1,20 @@
 여기서 ctrl + F11 실행하면 서버가 실행됨
 
-git personal access tokens : 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
+git personal access tokens : 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
+
+-- 홈화면에서 회사등록 화면 호출
+1. login.jsp 홈에서 회사등록 호출 : <a href="/sys101100m/list" target="_self">회사등록</a>
+
+2. Sys101100mController
+@Controller
+@RequestMapping("/sys101100m")
+public class Sys101100mController {	
+	@RequestMapping("/list")
+	public String selectCompanyList(Model model) throws Exception {
+		return "/sys/sys101100m/list";
+	}	
+}
+
 
 # ---------------------------------------------------
 # 패키지 구조
