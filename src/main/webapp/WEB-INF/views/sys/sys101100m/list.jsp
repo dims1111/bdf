@@ -6,19 +6,42 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		
+		<!-- jQuery -->
+			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+			        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+			        crossorigin="anonymous"></script>
+
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
 		      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" 
 		      crossorigin="anonymous" >
 
 		<title>회사등록</title>
+		
+		<!-- 상단 마진 -->
 		<style>
 			body {			
 				padding-top: 70px;			
 				padding-bottom: 30px;			
 			}		
 		</style>
-
+		
+		<!-- 메인버튼 클릭 이벤트  -->
+		<script>		
+			$(document).on('click', '#btnLogin', function(e) {		
+				e.preventDefault();
+				location.href = "${pageContext.request.contextPath}/login";		
+			});
+		</script>
+		
+		<!-- 신규버튼 클릭 이벤트 -->
+		<script>	
+			$(document).on('click', '#btnAddRow', function(e) {		
+				e.preventDefault();
+				location.href = "${pageContext.request.contextPath}/sys101100m/save";		
+			});
+		</script>
 	</head>
 	<body>
 		<form action="list">
@@ -30,24 +53,30 @@
 							<thead>
 								<tr>
 									<td>No</td>
-									<!-- <td>회사ID</td> -->
+<!-- 
+									<td>회사ID</td> 
+-->
 									<td align="center">회사코드</td>
 									<td align="center">회사명(한글)</td>
 									<td align="center">회사명(영문)</td>
 									<td align="center">시작일자</td>
 									<td align="center">종료일자</td>
 									<td align="center">사용여부</td>
-									<!-- <td align="center">주소라인1</td>
+<!-- 
+									<td align="center">주소라인1</td>
 									<td align="center">주소라인2</td>
-									<td align="center">우편번호</td> -->
+									<td align="center">우편번호</td> 
+-->
 									<td align="center">이메일</td>
 									<td align="center">전화번호</td>
-									<!-- <td align="center">설명</td>
+<!-- 
+									<td align="center">설명</td>
 									
 									<td align="center">생성자</td>
 									<td align="center">생성일시</td>
 									<td align="center">수정자</td>
-									<td align="center">수정일시</td> -->
+									<td align="center">수정일시</td> 
+-->
 								</tr>	
 							</thead>
 							<tbody>
@@ -61,7 +90,9 @@
 										<c:forEach var="n" items="${selectCompanyList}" varStatus="s">
 											<tr>
 												<td align="center">${s.count}</td>
-												<%-- <td align="center">${n.company_id}</td> --%>
+<%-- 
+												<td align="center">${n.company_id}</td> 
+--%>
 												<td align="center">${n.company_code}</td>
 												<td align="center">${n.company_name_kr}</td>
 												<td align="center">${n.company_name_en}</td>
@@ -86,7 +117,8 @@
 													</c:otherwise>									
 												</c:choose>
 												
-												<%-- <c:choose>
+<%-- 
+												<c:choose>
 													<c:when test="${n.address_line1 eq null || n.address_line1 eq ''}">
 														<td align="center"></td>
 													</c:when>
@@ -111,7 +143,8 @@
 													<c:otherwise>
 														<td align="center">${n.zip_code}</td>
 													</c:otherwise>									
-												</c:choose> --%>
+												</c:choose> 
+--%>
 												
 												<c:choose>
 													<c:when test="${n.email_address eq null || n.email_address eq ''}">
@@ -131,7 +164,8 @@
 													</c:otherwise>									
 												</c:choose>
 												
-												<%-- <c:choose>
+<%-- 
+												<c:choose>
 													<c:when test="${n.description eq null || n.description eq ''}">
 														<td align="center"></td>
 													</c:when>
@@ -143,7 +177,8 @@
 												<td align="center">${n.create_by}</td>									
 												<td align="center">${n.create_date}</td>
 												<td align="center">${n.update_by}</td>
-												<td align="center">${n.update_date}</td> --%>
+												<td align="center">${n.update_date}</td> 
+--%>
 											</tr>
 										</c:forEach>
 									</c:when>
@@ -151,12 +186,13 @@
 							</tbody>
 						</table>
 					</div>
-				</div>
+					
+					<div >
+						<button type="button" class="btn btn-sm btn-primary" id="btnLogin">메인화면</button>
+						<button type="button" class="btn btn-sm btn-primary" id="btnAddRow">신규</button>
+					</div>
+				</div>				
 			</article>
-			
-			
-			<br>
-			<a href="/login" >메인</a>
 		</form>	
 	</body>
 </html>

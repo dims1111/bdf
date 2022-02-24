@@ -45,4 +45,18 @@ public class Sys101100mController {
 		
 		return "/sys/sys101100m/list";
 	}
+	
+	
+	@RequestMapping("/save")
+	public String saveCompany(Model model) throws Exception {
+		
+		logger.info("====================================================================");
+		logger.info("[ 프로그램       ] 회사등록/신규등록");
+		logger.info("[ RequestMapping ] /sys101100m/save");
+		logger.info("[ Controller     ] Sys101100mController.saveCompany");
+		logger.info("[ return         ] /sys/sys101100m/save");
+		logger.info("====================================================================");
+				
+		return "/sys/sys101100m/save";
+	}
 }
