@@ -1,5 +1,6 @@
 package com.gbdf.bdf.sys.controller;
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ import com.gbdf.bdf.sys.model.Sys101100mVO;
 import com.gbdf.bdf.sys.service.Sys101100mService;
 
 @Controller
-@RequestMapping("/sys101100m")
+@RequestMapping("/sys/sys101100m")
 public class Sys101100mController {
 	
 	// 로거 변수 선언
@@ -24,15 +25,15 @@ public class Sys101100mController {
 	// 서비스 인터페이스 객체 메모리 할당
 	@Autowired
 	private Sys101100mService sys101100mService;
-
+	
 	@RequestMapping("/list")
-	public String selectCompanyList(@RequestParam(value="method_type") String paramMethodType
-			                       ,@RequestParam(value="company_code") String paramCompanyCode
-			                       ,@RequestParam(value="company_name") String ParamCompanyName
+	public String selectCompanyList(@RequestParam(value="method_type", required=false) String paramMethodType
+			                       ,@RequestParam(value="company_code", defaultValue="BT1" ) String paramCompanyCode
+			                       ,@RequestParam(value="company_name", required=false) String ParamCompanyName
 			                       ,Model model) throws Exception {
 		
 		logger.info("====================================================================");
-		logger.info("[ 프로그램       ] 회사등록/목록조회");
+		logger.info("[ 프로그램       ] 회사등록/조회");
 		logger.info("[ RequestMapping ] /sys101100m/list");
 		logger.info("[ Controller     ] Sys101100mController.selectCompanyList");
 		logger.info("[ return         ] /sys/sys101100m/list");
@@ -49,6 +50,11 @@ public class Sys101100mController {
 		
 		// 데이터 조회 화면 호출
 		return "/sys/sys101100m/list";
+	}
+	
+	@RequestMapping("/new")
+	public void newComapny() throws Exception {
+		
 	}
 	
 	

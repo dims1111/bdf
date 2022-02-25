@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.gbdf.bdf.loginController;
 import com.gbdf.bdf.sys.model.Sys101100mVO;
@@ -23,11 +24,11 @@ public class Sys101100mServiceImpl implements Sys101100mService {
 	private static final Logger logger = LoggerFactory.getLogger(loginController.class);
 	
 	@Autowired
-	private SqlSession sqlSession;
+	private SqlSession session;
 	
 	// 데이터 조회	
 	@Override
-	public List<Sys101100mVO> selectCompanyList() throws Exception {	
+	public List<Sys101100mVO> selectCompanyList() throws Exception {
 		
 		logger.info("====================================================================");
 		logger.info("[ 프로그램       ] 회사등록/조회");
@@ -35,8 +36,23 @@ public class Sys101100mServiceImpl implements Sys101100mService {
 		logger.info("[ selectList     ] selectCompanyList");
 		logger.info("====================================================================");
 		
-		return sqlSession.selectList(NAMESPACE + ".selectCompanyList");
+		return session.selectList(NAMESPACE + ".selectCompanyList");
 	}
+	
+	
+	// 데이터 조회2
+	@Override
+	public List<Sys101100mVO> selectCompanyList2() throws Exception {
+		
+		logger.info("====================================================================");
+		logger.info("[ 프로그램       ] 회사등록/조회2");
+		logger.info("[ ServiceImpl    ] Sys101100mServiceImpl.selectCompanyList2");
+		logger.info("[ selectList     ] selectCompanyList");
+		logger.info("====================================================================");
+		
+		return session.selectList(NAMESPACE + ".selectCompanyList");
+	}
+	
 	
 	// 신규 데이터 저장
 	@Override
@@ -54,6 +70,6 @@ public class Sys101100mServiceImpl implements Sys101100mService {
 		sys101100mVO.setBegin_date("2020-02-22");
 		sys101100mVO.setUser_yn("Y");
 		
-		sqlSession.insert(NAMESPACE + ".insertCompany", sys101100mVO);
+		session.insert(NAMESPACE + ".insertCompany", sys101100mVO);
 	}
 }

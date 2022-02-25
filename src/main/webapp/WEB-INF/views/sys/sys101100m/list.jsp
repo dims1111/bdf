@@ -37,9 +37,9 @@
 		
 		<!-- 신규버튼 클릭 이벤트 -->
 		<script>	
-			$(document).on('click', '#btnAddRow', function(e) {		
+			$(document).on('click', '#btnNew', function(e) {		
 				e.preventDefault();
-				location.href = "${pageContext.request.contextPath}/sys101100m/save";		
+				location.href = "${pageContext.request.contextPath}/sys/sys101100m/new";		
 			});
 		</script>
 	</head>
@@ -49,7 +49,7 @@
 				<div class="container">
 					<div class="table-responsive">
 						<h3>회사등록</h3>		
-						<table class="table table-striped table-sm">							
+						<table class="table table-hover table-sm">							
 							<thead>
 								<tr>
 									<td>No</td>
@@ -189,7 +189,7 @@
 					
 					<div >
 						<button type="button" class="btn btn-sm btn-primary" id="btnLogin">메인화면</button>
-						<button type="button" class="btn btn-sm btn-primary" id="btnAddRow">신규</button>
+						<button type="button" class="btn btn-sm btn-primary" id="btnNew">신규</button>
 					</div>
 				</div>				
 			</article>
