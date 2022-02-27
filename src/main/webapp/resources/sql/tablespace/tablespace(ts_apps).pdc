@@ -3,7 +3,7 @@ select *
   from dba_data_files;
 
 -- 테이블스페이스 삭제
-drop tablespace ts_apps_data including contents and datafiles;
+drop tablespace ts_apps_data ncluding contents and datafiles;
 
 -- 테이블스페이스의 물리적 파일까지 삭제하기
 drop tablespace ts_apps_idx including contents and datafiles;

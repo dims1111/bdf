@@ -2,10 +2,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 	<head>
-		<title>Built1 MVC Project</title>
-		<script src="/js/jquery-3.3.1.slim.min.js"></script>
+		<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!-- Bootstrap core CSS/JS, jQuery -->
 		<link href="/css/bootstrap.min.css" rel="stylesheet">
-		<script src="https://kit.fontawesome.com/7217e40e9a.js" crossorigin="anonymous"></script>
+		<script src="/js/bootstrap.bundle.min.js"></script>
+		<script src="/js/jquery-3.6.0.min.js"></script>
+		
+		<title>Built1 MVC Project</title>
 	</head>
 	
 	<body>

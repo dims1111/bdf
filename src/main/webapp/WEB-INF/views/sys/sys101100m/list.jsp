@@ -5,19 +5,20 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8">
+		<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<!-- meta jQuery / Bootstrap CSS -->
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script src="/js/jquery-3.3.1.slim.min.js"></script>
+		<!-- Bootstrap core CSS/JS, jQuery -->
 		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<script src="/js/bootstrap.bundle.min.js"></script>
+		<script src="/js/jquery-3.6.0.min.js"></script>
 					
 		<title>회사등록</title>
 		
 		<!-- 상단 마진 -->
 		<style>
 			body {			
-				padding-top: 30px;			
+				padding-top: 60px;			
 				padding-bottom: 30px;			
 			}		
 		</style>
@@ -47,7 +48,7 @@
 						<!-- 화면 제목 -->
 		        		<div class="shadow p-1 mb-2 bg-primary rounded text-light ">        
 		      				<div style="margin-left:20px;" >
-		      					<span><h5 style="font-weight:bold; margin-top:10px">회사목록</h5></span>	      				
+		      					<h5 style="font-weight:bold; margin-top:10px">회사목록</h5>
 						  	</div>        			        			
 		        		</div>
 		        		<br>
