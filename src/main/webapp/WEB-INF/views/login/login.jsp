@@ -1,35 +1,40 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!doctype html>
 <html>
-	<head>
-		<title>Home</title>
-	</head>
+	<head>	
+		<meta charset="utf-8">
+		<title>Built1 MVC & Bootstrap v5.1</title>
 	
-	<body>
-		<h1>
-			Hello world!  
-		</h1>
+		<!-- Bootstrap core CSS -->
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/signin.css" rel="stylesheet">
+	</head>	
 	
-		<P>  The time on the server is ${serverTime}. </P>
-		
-		<a href="/sys/sys101100m/list?method_type=get 방식&company_code=BT1&company_name=빌트원">회사등록(get 방식)</a>
-		
-		<hr/>
-		<form action='/sys/sys101100m/list' method='post'>
-			Mothod Type : <input type='hidden' name='method_type' value="post 방식" /><br/>
-			회사코드 : <input type='text' name='company_code' value="BT1" /><br/>
-			회사명 : <input type='text' name='company_name' value="빌트원" /><br/><br/>
-			
-			<button type='submit'>회사등록(post 방식)</button>
-			<button type='submit'>회사등록(post 방식)</button>
+	<body class="text-center">
+		<main class="form-signin">
+			<form action='/main' method='post'>
+				<img class="mb-4" src="/image/bootstrap-logo.svg" alt="" width="72" height="57">				
+				<h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+				<div class="form-floating">
+					<input type="text" class="form-control" id="user_id" text="" placeholder="User ID"> 
+					<label for="user_id">User ID</label>
+				</div>
+				
+				<div class="form-floating">
+					<input type="password" class="form-control" id="password" value="" text="" placeholder="Password">
+					<label for="password">Password</label>
+				</div>
+
+				<div class="checkbox mb-3">
+					<label> <input type="checkbox" value="remember-me">Remember me</label>
+				</div>
+				
+				<button class="w-100 btn btn-lg btn-primary" type="submit">Sign	in</button>
+				<p class="mt-5 mb-3 text-muted"></p>
 		</form>
-		
-		<form action='/sys/sys101100m/list2' method='post'>
-			Mothod Type : <input type='hidden' name='method_type' value="post 방식" /><br/>
-			회사코드 : <input type='text' name='company_code' value="BT1" /><br/>
-			회사명 : <input type='text' name='company_name' value="빌트원" /><br/><br/>
-			
-			<button type='submit'>회사등록(post 방식)</button>
-		</form>
-	</body>
+	</main>
+</body>
 </html>
+

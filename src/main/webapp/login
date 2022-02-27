@@ -1,6 +1,6 @@
 여기서 ctrl + F11 실행하면 서버가 실행됨
 
-git personal access tokens : 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
+git personal access tokens : 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
 
 -- 홈화면에서 회사등록 화면 호출
 1. login.jsp 홈에서 회사등록 호출 : <a href="/sys101100m/list" target="_self">회사등록</a>

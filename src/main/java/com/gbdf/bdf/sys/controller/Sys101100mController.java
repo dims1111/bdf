@@ -14,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.gbdf.bdf.loginController;
 import com.gbdf.bdf.sys.model.Sys101100mVO;
 import com.gbdf.bdf.sys.service.Sys101100mService;
+import com.gbdf.bdf.util.Util;
 
 @Controller
 @RequestMapping("/sys/sys101100m")
@@ -63,16 +64,31 @@ public class Sys101100mController {
                              ,RedirectAttributes rttr) throws Exception {
 		
 		logger.info("====================================================================");
-		logger.info("[ 프로그램       ] 회사등록/신규등록");
+		logger.info("[ 프로그램       ] 회사등록/저장");
 		logger.info("[ RequestMapping ] /sys101100m/save");
 		logger.info("[ Controller     ] Sys101100mController.saveCompany");
-		logger.info("[ return         ] /sys/sys101100m/save");
-		logger.info("====================================================================");
+		logger.info("[ return         ] /sys/sys101100m/save");		
+        logger.info("--------------------------------------------------------------------");
+        logger.info("[ 매개변수       ]");
+        logger.info("--------------------------------------------------------------------");        
+        logger.info("[ 회사코드         ] " + Util.fnIsNullStr(sys101100mVO.getCompany_code()));
+        logger.info("[ 회사명(한글)     ] " + Util.fnIsNullStr(sys101100mVO.getCompany_name_kr()));
+        logger.info("[ 회사명(영문)     ] " + Util.fnIsNullStr(sys101100mVO.getCompany_name_en()));
+        logger.info("[ 시작일자         ] " + Util.fnIsNullStr(sys101100mVO.getBegin_date()));
+        logger.info("[ 종료일자         ] " + Util.fnIsNullStr(sys101100mVO.getEnd_date()));
+        logger.info("[ 사용여부         ] " + Util.fnIsNullStr(sys101100mVO.getUser_yn()));
+        logger.info("[ 주소라인1        ] " + Util.fnIsNullStr(sys101100mVO.getAddress_line1()));
+        logger.info("[ 주소라인2        ] " + Util.fnIsNullStr(sys101100mVO.getAddress_line2()));
+        logger.info("[ 우편번호         ] " + Util.fnIsNullStr(sys101100mVO.getZip_code()));
+        logger.info("[ 이메일           ] " + Util.fnIsNullStr(sys101100mVO.getEmail_address()));
+        logger.info("[ 전화번호         ] " + Util.fnIsNullStr(sys101100mVO.getTelephone_number()));
+        logger.info("[ 설명             ] " + Util.fnIsNullStr(sys101100mVO.getDescription()));
+        logger.info("====================================================================");
 		
 		// 인터페이스 호출 : 신규 데이터 저장
 		sys101100mService.saveCompany(sys101100mVO);
 		
 		// 신규 데이터 입력 화면 호출
-		return "redirect:/sys/sys101100m/save";
+		return "redirect:/sys/sys101100m/new";
 	}
 }

@@ -42,4 +42,9 @@ public class loginController {
 				
 		return "/login/login";
 	}	
+	
+	@RequestMapping(value="main") 
+	public String main(Model model) {
+		return "/login/main";
+	}
 }

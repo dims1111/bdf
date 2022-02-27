@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 
 import com.gbdf.bdf.loginController;
 import com.gbdf.bdf.sys.model.Sys101100mVO;
+import com.gbdf.bdf.util.Util;
 
 
 //매퍼 호출
@@ -53,7 +54,7 @@ public class Sys101100mServiceImpl implements Sys101100mService {
 		return session.selectList(NAMESPACE + ".selectCompanyList");
 	}
 	
-	
+	  
 	// 신규 데이터 저장
 	@Override
 	public void saveCompany(Sys101100mVO sys101100mVO) throws Exception {
@@ -62,13 +63,23 @@ public class Sys101100mServiceImpl implements Sys101100mService {
 		logger.info("[ 프로그램       ] 회사등록/신규 데이터 저장");
 		logger.info("[ ServiceImpl    ] Sys101100mServiceImpl.saveCompany");
 		logger.info("[ selectList     ] insertCompany");
-		logger.info("====================================================================");
-		
-		sys101100mVO.setCompany_code("BUILT1");
-		sys101100mVO.setCompany_name_kr("주식회사 빌트원1");
-		sys101100mVO.setCompany_name_en("Buitl1 co,.ltd");
-		sys101100mVO.setBegin_date("2020-02-22");
-		sys101100mVO.setUser_yn("Y");
+		logger.info("====================================================================");		
+        logger.info("--------------------------------------------------------------------");
+        logger.info("[ 매개변수       ]");
+        logger.info("--------------------------------------------------------------------");
+        logger.info("[ 회사코드         ] " + Util.fnIsNullStr(sys101100mVO.getCompany_code()));
+        logger.info("[ 회사명(한글)     ] " + Util.fnIsNullStr(sys101100mVO.getCompany_name_kr()));
+        logger.info("[ 회사명(영문)     ] " + Util.fnIsNullStr(sys101100mVO.getCompany_name_en()));
+        logger.info("[ 시작일자         ] " + Util.fnIsNullStr(sys101100mVO.getBegin_date()));
+        logger.info("[ 종료일자         ] " + Util.fnIsNullStr(sys101100mVO.getEnd_date()));
+        logger.info("[ 사용여부         ] " + Util.fnIsNullStr(sys101100mVO.getUser_yn()));
+        logger.info("[ 주소라인1        ] " + Util.fnIsNullStr(sys101100mVO.getAddress_line1()));
+        logger.info("[ 주소라인2        ] " + Util.fnIsNullStr(sys101100mVO.getAddress_line2()));
+        logger.info("[ 우편번호         ] " + Util.fnIsNullStr(sys101100mVO.getZip_code()));
+        logger.info("[ 이메일           ] " + Util.fnIsNullStr(sys101100mVO.getEmail_address()));
+        logger.info("[ 전화번호         ] " + Util.fnIsNullStr(sys101100mVO.getTelephone_number()));
+        logger.info("[ 설명             ] " + Util.fnIsNullStr(sys101100mVO.getDescription()));
+        logger.info("====================================================================");
 		
 		session.insert(NAMESPACE + ".insertCompany", sys101100mVO);
 	}

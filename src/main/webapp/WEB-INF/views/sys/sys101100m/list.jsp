@@ -3,26 +3,21 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="UTF-8">
 		
-		<!-- jQuery -->
-			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
-			        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
-			        crossorigin="anonymous"></script>
-
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
-		      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" 
-		      crossorigin="anonymous" >
-
+		<!-- meta jQuery / Bootstrap CSS -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="/js/jquery-3.3.1.slim.min.js"></script>
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+					
 		<title>회사등록</title>
 		
 		<!-- 상단 마진 -->
 		<style>
 			body {			
-				padding-top: 70px;			
+				padding-top: 30px;			
 				padding-bottom: 30px;			
 			}		
 		</style>
@@ -31,7 +26,7 @@
 		<script>		
 			$(document).on('click', '#btnLogin', function(e) {		
 				e.preventDefault();
-				location.href = "${pageContext.request.contextPath}/login";		
+				location.href = "${pageContext.request.contextPath}/main";		
 			});
 		</script>
 		
@@ -48,10 +43,18 @@
 			<article>
 				<div class="container">
 					<div class="table-responsive">
-						<h3>회사등록</h3>		
+						
+						<!-- 화면 제목 -->
+		        		<div class="shadow p-1 mb-2 bg-primary rounded text-light ">        
+		      				<div style="margin-left:20px;" >
+		      					<span><h5 style="font-weight:bold; margin-top:10px">회사목록</h5></span>	      				
+						  	</div>        			        			
+		        		</div>
+		        		<br>
+														
 						<table class="table table-hover table-sm">							
 							<thead>
-								<tr>
+								<tr class="table-info table-sm">
 									<td>No</td>
 <!-- 
 									<td>회사ID</td> 
@@ -94,8 +97,8 @@
 												<td align="center">${n.company_id}</td> 
 --%>
 												<td align="center">${n.company_code}</td>
-												<td align="center">${n.company_name_kr}</td>
-												<td align="center">${n.company_name_en}</td>
+												<td align="left">${n.company_name_kr}</td>
+												<td align="left">${n.company_name_en}</td>
 												<td align="center">${n.begin_date}</td>
 												
 												<!-- 종료일자가 null일 경우 처리 -->
@@ -104,7 +107,8 @@
 														<td align="center"></td>
 													</c:when>
 													<c:otherwise>
-														<td align="center"><fmt:formatDate value="${n.end_date}" pattern="yyyy-MM-dd"/></td>
+														<td align="center">${n.end_date}</td>
+														<%-- <td align="center"><fmt:formatDate value="${n.end_date}" pattern="yyyy-MM-dd"/></td> --%>
 													</c:otherwise>									
 												</c:choose>
 												
@@ -148,19 +152,19 @@
 												
 												<c:choose>
 													<c:when test="${n.email_address eq null || n.email_address eq ''}">
-														<td align="center"></td>
+														<td align="left"></td>
 													</c:when>
 													<c:otherwise>
-														<td align="center">${n.email_address}</td>
+														<td align="left">${n.email_address}</td>
 													</c:otherwise>									
 												</c:choose>
 												
 												<c:choose>
 													<c:when test="${n.telephone_number eq null || n.telephone_number eq ''}">
-														<td align="center"></td>
+														<td align="left"></td>
 													</c:when>
 													<c:otherwise>
-														<td align="center">${n.telephone_number}</td>
+														<td align="left">${n.telephone_number}</td>
 													</c:otherwise>									
 												</c:choose>
 												
@@ -187,9 +191,9 @@
 						</table>
 					</div>
 					
-					<div >
-						<button type="button" class="btn btn-sm btn-primary" id="btnLogin">메인화면</button>
-						<button type="button" class="btn btn-sm btn-primary" id="btnNew">신규</button>
+					<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+					  <button id="btnNew" class="btn btn-primary btn-sm" type="button">신규등록</button>
+					  <button id="btnLogin" class="btn btn-primary btn-sm me-md-0" type="button">메인화면</button>
 					</div>
 				</div>				
 			</article>
