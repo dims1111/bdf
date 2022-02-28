@@ -47,4 +47,24 @@ public class loginController {
 	public String main(Model model) {
 		return "/login/main";
 	}
+	
+	@RequestMapping(value="top") 
+	public String top(Model model) {
+		return "/login/frame/top";
+	}
+	
+	@RequestMapping(value="left") 
+	public String left(Model model) {
+		return "/login/frame/left";
+	}
+	
+	@RequestMapping(value="right") 
+	public String right(Model model) {
+		return "/login/frame/right";
+	}
+	
+	@RequestMapping(value="bottom") 
+	public String bottom(Model model) {
+		return "/login/frame/bottom";
+	}	
 }

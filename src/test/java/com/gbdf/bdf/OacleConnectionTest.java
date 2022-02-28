@@ -5,10 +5,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import javax.inject.Inject;
-
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,11 +21,7 @@ public class OacleConnectionTest {
 	private static final String URL = "jdbc:oracle:thin:@localhost:1521:orcl";
 	private static final String USERNAME = "apps";
 	private static final String PASSWORD = "apps";
-	
-	@Inject
-	private SqlSessionFactory sqlSessionFactory;
-	
-	
+		
 	@Test
 	public void testConnection() throws Exception {		
 		Class.forName(DRIVER);		

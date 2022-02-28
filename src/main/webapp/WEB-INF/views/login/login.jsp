@@ -34,6 +34,11 @@
 				e.preventDefault();
 				location.href = "${pageContext.request.contextPath}/main";		
 			});
+			
+			$(document).on('click', '#btnLeft', function(e) {		
+				e.preventDefault();
+				location.href = "${pageContext.request.contextPath}/left";		
+			});
 		</script>    
 	</head>
   	<body>		
@@ -60,6 +65,7 @@
           				</div>
           				
           				<button id="btnMain" class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+          				<button id="btnLeft" class="w-100 btn btn-lg btn-primary" type="submit">left page</button>
           				<hr class="my-4">
           				<small class="text-muted">사용자가 로그인 하시면, 개인정보 동의를 자동 동의하는 것입니다.</small>
 					</form>

@@ -25,10 +25,14 @@
 		
 		<!-- 메인버튼 클릭 이벤트  -->
 		<script>		
+			/* 
 			$(document).on('click', '#btnLogin', function(e) {		
 				e.preventDefault();
 				location.href = "${pageContext.request.contextPath}/main";		
-			});
+			}); 
+			*/
+			var compnayCode = parent.document.all["company_code"].value;
+			alert("compnayCode => " + compnayCode);
 		</script>
 		
 		<!-- 신규버튼 클릭 이벤트 -->
